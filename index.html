@@ -3,234 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Machine - Complete Lead Generation System</title>
+    <title>Get 15-25 More Roofing Quotes Every Month | LeadFlow Roofers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2a5bd7;
-            --primary-dark: #1e429f;
-            --secondary: #10b981;
-            --dark: #1f2937;
-            --light: #f9fafb;
-            --gray: #6b7280;
+            --roof-blue: #1e40af;
+            --roof-orange: #ea580c;
+            --roof-gray: #374151;
+            --roof-light: #f8fafc;
         }
+        
         body {
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            color: var(--roof-gray);
+            line-height: 1.7;
         }
+        
         h1, h2, h3, h4, h5 {
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
         }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
+        
+        .hero-section {
+            background: linear-gradient(rgba(30, 64, 175, 0.95), rgba(30, 64, 175, 0.9)), url('https://images.unsplash.com/photo-1593941707882-a5bba5338fe2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            position: relative;
         }
-        .hero {
-            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-            padding: 5rem 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .hero h1 {
+        
+        .hero-title {
             font-size: 3.5rem;
+            font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
         }
-        .highlight {
-            color: var(--primary);
+        
+        .hero-highlight {
+            color: #fbbf24;
             position: relative;
+            display: inline-block;
         }
-        .highlight:after {
+        
+        .hero-highlight:after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: 5px;
             left: 0;
             width: 100%;
-            height: 30%;
-            background-color: rgba(42, 91, 215, 0.15);
+            height: 8px;
+            background-color: var(--roof-orange);
+            opacity: 0.5;
             z-index: -1;
         }
-        .cta-button {
-            background-color: var(--primary);
+        
+        .cta-primary {
+            background-color: var(--roof-orange);
             color: white;
             font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
+            padding: 16px 32px;
+            border-radius: 10px;
             border: none;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
         }
-        .cta-button:hover {
-            background-color: var(--primary-dark);
+        
+        .cta-primary:hover {
+            background-color: #c2410c;
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(42, 91, 215, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.3);
         }
+        
+        .cta-secondary {
+            background-color: transparent;
+            color: white;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 10px;
+            border: 2px solid white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-secondary:hover {
+            background-color: white;
+            color: var(--roof-blue);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 50px;
         }
+        
         .section-title h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            color: var(--roof-blue);
+            margin-bottom: 15px;
         }
-        .package-card {
+        
+        .section-title .subtitle {
+            font-size: 1.2rem;
+            color: var(--roof-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: white;
             border-radius: 12px;
-            overflow: hidden;
+            padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
+            text-align: center;
             height: 100%;
-            border: 1px solid #e5e7eb;
+            border-top: 4px solid var(--roof-orange);
+            transition: transform 0.3s ease;
         }
-        .package-card:hover {
+        
+        .stat-card:hover {
             transform: translateY(-10px);
         }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--roof-blue);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--roof-gray);
+            font-weight: 600;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
         .package-header {
-            background-color: var(--primary);
+            background: var(--roof-blue);
             color: white;
-            padding: 2rem;
+            padding: 30px;
             text-align: center;
         }
-        .package-body {
-            padding: 2rem;
+        
+        .package-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
         }
+        
+        .package-body {
+            padding: 30px;
+        }
+        
         .feature-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
+        
         .feature-list li {
-            padding: 0.75rem 0;
+            padding: 12px 0;
             border-bottom: 1px solid #f1f1f1;
             position: relative;
-            padding-left: 2rem;
+            padding-left: 35px;
         }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
         .feature-list li:before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--secondary);
+            color: var(--roof-orange);
             font-weight: bold;
+            font-size: 1.2rem;
         }
-        .chat-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 350px;
-            height: 500px;
+        
+        .testimonial-card {
             background: white;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid #e5e7eb;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin: 20px 0;
+            border-left: 5px solid var(--roof-orange);
         }
-        .chat-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1rem;
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--roof-gray);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
             font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            color: var(--roof-blue);
+            margin-bottom: 5px;
         }
-        .chat-body {
-            flex-grow: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            background-color: #f9f9f9;
+        
+        .demo-section {
+            background: linear-gradient(to right, #f0f9ff, #e6f7ff);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 40px 0;
         }
-        .chat-input {
-            padding: 1rem;
-            border-top: 1px solid #e5e7eb;
+        
+        .demo-chat {
             background: white;
+            border-radius: 12px;
+            padding: 25px;
+            height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .chat-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(42, 91, 215, 0.3);
-            z-index: 999;
+        
+        .chat-message {
+            margin-bottom: 20px;
+            max-width: 85%;
+            animation: fadeIn 0.3s ease;
         }
-        .message {
-            margin-bottom: 1rem;
-            max-width: 80%;
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .bot-message {
-            background-color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 12px 12px 12px 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        
+        .chat-bot {
+            background: #f1f5f9;
+            padding: 15px 20px;
+            border-radius: 18px 18px 18px 5px;
             align-self: flex-start;
         }
-        .user-message {
-            background-color: var(--primary);
+        
+        .chat-user {
+            background: var(--roof-blue);
             color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 12px 12px 4px 12px;
+            padding: 15px 20px;
+            border-radius: 18px 18px 5px 18px;
             margin-left: auto;
-            align-self: flex-end;
         }
-        .demo-form {
-            background-color: #f0f7ff;
+        
+        .chat-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .chat-option {
+            background: white;
+            border: 1px solid #e5e7eb;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        
+        .chat-option:hover {
+            background: var(--roof-blue);
+            color: white;
+            border-color: var(--roof-blue);
+        }
+        
+        .lead-form {
+            background: white;
+            padding: 30px;
             border-radius: 12px;
-            padding: 2rem;
-            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
+        
         .form-label {
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            color: var(--roof-gray);
+            margin-bottom: 8px;
         }
+        
+        .results-card {
+            background: linear-gradient(135deg, #1e40af, #1d4ed8);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        
         .step-number {
             display: inline-flex;
-            justify-content: center;
             align-items: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary);
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--roof-orange);
             color: white;
             border-radius: 50%;
-            font-weight: 600;
-            margin-right: 1rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
-        .how-it-works-step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-        }
-        .how-it-works-content {
+        
+        .step-content {
             flex: 1;
         }
+        
         footer {
-            background-color: var(--dark);
+            background: #1f2937;
             color: white;
-            padding: 3rem 0;
-            margin-top: 5rem;
+            padding: 60px 0 30px;
         }
+        
+        .footer-heading {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 {
+            .hero-title {
                 font-size: 2.5rem;
             }
-            .chat-widget {
-                width: calc(100vw - 60px);
-                height: 60vh;
-                right: 30px;
-                left: 30px;
-                bottom: 100px;
+            
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
             }
         }
     </style>
@@ -239,26 +366,25 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><span class="highlight">Client</span>Machine</a>
+            <a class="navbar-brand" href="#" style="font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--roof-blue);">
+                <span style="color: var(--roof-orange);">Lead</span>Flow<span style="color: var(--roof-blue);">Roofers</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#what-is">What Is It</a>
+                        <a class="nav-link" href="#how">How It Works</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#package">Package</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                        <a class="nav-link" href="#results">Results</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#demo">Demo</a>
                     </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link cta-button" href="#contact">Get Started</a>
+                    <li class="nav-item ms-3">
+                        <a class="cta-primary" href="#contact">Get Free Audit</a>
                     </li>
                 </ul>
             </div>
@@ -266,144 +392,77 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1>A system that gives you more <span class="highlight">booked quotes</span> every month.</h1>
-                    <p class="lead mb-4">Not just a website. A complete lead generation and conversion system for high-value local services like roofing companies, med spas, contractors, and more.</p>
-                    <a href="#package" class="cta-button me-3">See The Package</a>
-                    <a href="#demo" class="cta-button" style="background-color: transparent; color: var(--primary); border: 2px solid var(--primary);">Try Demo</a>
+                    <h1 class="hero-title">
+                        Get <span class="hero-highlight">10–25 more roof inspection requests</span> every month in your city
+                    </h1>
+                    <p class="lead mb-4" style="font-size: 1.2rem; opacity: 0.95;">
+                        Stop waiting for referrals. Our complete lead system books qualified appointments automatically—so you can focus on roofing, not marketing.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="cta-primary">
+                            <i class="fas fa-calendar-check me-2"></i> Book Free Demo
+                        </a>
+                        <a href="#demo" class="cta-secondary">
+                            <i class="fas fa-play-circle me-2"></i> See How It Works
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <p class="mb-1"><i class="fas fa-check-circle me-2" style="color: #4ade80;"></i> No long-term contracts</p>
+                        <p class="mb-1"><i class="fas fa-check-circle me-2" style="color: #4ade80;"></i> Set up in 5 days</p>
+                        <p class="mb-0"><i class="fas fa-check-circle me-2" style="color: #4ade80;"></i> Pay only for booked appointments</p>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="package-card mt-5 mt-lg-0">
-                        <div class="package-header">
-                            <h3 class="mb-0">Complete Lead System</h3>
-                            <p class="mb-0 mt-1">Everything you need to convert visitors into booked appointments</p>
-                        </div>
-                        <div class="package-body">
-                            <ul class="feature-list">
-                                <li>Focused Landing Page</li>
-                                <li>AI Chat & Lead Capture</li>
-                                <li>Automated Follow-Up System</li>
-                                <li>Traffic Strategy & Setup</li>
-                                <li>CRM Integration</li>
-                                <li>Monthly Performance Reports</li>
-                            </ul>
-                            <div class="text-center mt-4">
-                                <h4 class="text-primary">One-Time Setup + Monthly Management</h4>
-                                <p class="text-muted">Stop wasting money on websites that don't generate leads</p>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="results-card">
+                        <h3 class="mb-4">Actual Results for Roofers</h3>
+                        <div class="row">
+                            <div class="col-6 mb-4">
+                                <div class="stat-number">15-25</div>
+                                <div class="stat-label">New Leads/Month</div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <div class="stat-number">30%</div>
+                                <div class="stat-label">Booking Rate</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-number">$500</div>
+                                <div class="stat-label">Avg. Ad Spend</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-number">$15-25k</div>
+                                <div class="stat-label">New Revenue/Month</div>
                             </div>
                         </div>
+                        <p class="mt-3" style="opacity: 0.9; font-size: 0.95rem;">
+                            *Based on average results for roofing companies using our system for 3+ months
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What Is It Section -->
-    <section class="py-5" id="what-is">
+    <!-- Social Proof -->
+    <section class="section-padding" style="background-color: var(--roof-light);">
         <div class="container">
-            <div class="section-title">
-                <h2>What You're Actually Selling</h2>
-                <p class="lead">You're not selling websites. You're selling booked appointments.</p>
-            </div>
             <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="alert alert-primary" role="alert">
-                        <h4 class="alert-heading"><i class="fas fa-bullhorn me-2"></i>Your Sales Pitch:</h4>
-                        <p class="mb-0">"I set up and manage a complete system that gets you more booked quotes or consultations every month. Not just a website - but the entire machine that turns online visitors into paying customers."</p>
-                    </div>
-                    
-                    <p class="mt-4">Most local service businesses waste thousands on "brochure websites" that don't generate leads. They struggle with inconsistent inquiries and poor lead quality.</p>
-                    
-                    <p>The Client Machine solves this with a focused 4-part system designed specifically for high-value local services where each customer is worth $1,000+.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Package Details -->
-    <section class="py-5 bg-light" id="package">
-        <div class="container">
-            <div class="section-title">
-                <h2>The Complete Package</h2>
-                <p>Everything included in the Client Machine system</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="package-card h-100">
-                        <div class="package-header" style="background-color: #3b82f6;">
-                            <i class="fas fa-laptop fa-2x mb-3"></i>
-                            <h4>1. Landing Page</h4>
+                <div class="col-lg-8 mx-auto">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Before LeadFlow, we were getting 3-4 calls a week from our website. After they set up their system, we now get 12-15 qualified leads every week. Last month we closed 7 new roof replacements from those leads—that's over $85,000 in new business."
                         </div>
-                        <div class="package-body">
-                            <p><strong>Single-page, focused design</strong> with one goal: get visitors to request a quote or book a consultation.</p>
-                            <ul class="feature-list">
-                                <li>Mobile-optimized</li>
-                                <li>Service-specific messaging</li>
-                                <li>Social proof & testimonials</li>
-                                <li>Clear call-to-action</li>
-                                <li>Contact form</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3">
-                    <div class="package-card h-100">
-                        <div class="package-header" style="background-color: #10b981;">
-                            <i class="fas fa-robot fa-2x mb-3"></i>
-                            <h4>2. AI Chat & Capture</h4>
-                        </div>
-                        <div class="package-body">
-                            <p><strong>AI chat widget</strong> that answers questions 24/7 and captures lead information automatically.</p>
-                            <ul class="feature-list">
-                                <li>Answers basic questions</li>
-                                <li>Collects name, phone, email</li>
-                                <li>Qualifies leads</li>
-                                <li>Pushes to Google Sheets/CRM</li>
-                                <li>Works after hours</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3">
-                    <div class="package-card h-100">
-                        <div class="package-header" style="background-color: #8b5cf6;">
-                            <i class="fas fa-sync-alt fa-2x mb-3"></i>
-                            <h4>3. Follow-Up System</h4>
-                        </div>
-                        <div class="package-body">
-                            <p><strong>Automated follow-up</strong> sequence to ensure no lead falls through the cracks.</p>
-                            <ul class="feature-list">
-                                <li>Instant lead notification</li>
-                                <li>Auto-text/email response</li>
-                                <li>Reminder system</li>
-                                <li>Call script for business</li>
-                                <li>CRM integration</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3">
-                    <div class="package-card h-100">
-                        <div class="package-header" style="background-color: #f59e0b;">
-                            <i class="fas fa-traffic-light fa-2x mb-3"></i>
-                            <h4>4. Traffic Plan</h4>
-                        </div>
-                        <div class="package-body">
-                            <p><strong>Get targeted visitors</strong> to your landing page with a simple, effective traffic strategy.</p>
-                            <ul class="feature-list">
-                                <li>Google Ads setup</li>
-                                <li>Facebook Ads strategy</li>
-                                <li>Local outreach plan</li>
-                                <li>Budget guidance</li>
-                                <li>Performance tracking</li>
-                            </ul>
+                        <div class="testimonial-author">Mike Rodriguez</div>
+                        <div class="testimonial-company" style="color: #6b7280;">Owner, Premium Roofing Solutions</div>
+                        <div class="mt-3">
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
                         </div>
                     </div>
                 </div>
@@ -412,60 +471,123 @@
     </section>
 
     <!-- How It Works -->
-    <section class="py-5" id="how-it-works">
+    <section class="section-padding" id="how">
         <div class="container">
             <div class="section-title">
-                <h2>How The System Works</h2>
-                <p>From visitor to booked appointment - automatically</p>
+                <h2>How Our Roofing Lead System Works</h2>
+                <p class="subtitle">Four simple parts that work together to fill your calendar with qualified appointments</p>
             </div>
             
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="how-it-works-step">
-                        <div class="step-number">1</div>
-                        <div class="how-it-works-content">
-                            <h4>Visitor lands on your focused page</h4>
-                            <p>They come from Google Ads, Facebook, or local search. The page is designed with one goal: get them to inquire.</p>
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h4>1. Roofer-Focused Page</h4>
+                        </div>
+                        <div class="package-body">
+                            <p><strong>A simple page built to convert roof-seeking homeowners.</strong> Not a fancy website—just what works to get calls.</p>
+                            <ul class="feature-list">
+                                <li>Mobile-optimized for homeowners</li>
+                                <li>Shingle/Flat roof service pages</li>
+                                <li>Before/after photos</li>
+                                <li>Local service area focus</li>
+                                <li>Emergency repair messaging</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="how-it-works-step">
-                        <div class="step-number">2</div>
-                        <div class="how-it-works-content">
-                            <h4>AI chat engages & qualifies</h4>
-                            <p>The chat widget pops up, answers their questions, and collects their contact information if they're interested.</p>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4>2. 24/7 AI Chat</h4>
+                        </div>
+                        <div class="package-body">
+                            <p><strong>Answers questions when you're on roofs.</strong> Captures leads even at 9 PM when homeowners are researching.</p>
+                            <ul class="feature-list">
+                                <li>Answers repair vs replace questions</li>
+                                <li>Provides rough ballpark estimates</li>
+                                <li>Qualifies emergency vs scheduled</li>
+                                <li>Books inspections directly</li>
+                                <li>Works when you're busy</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="how-it-works-step">
-                        <div class="step-number">3</div>
-                        <div class="how-it-works-content">
-                            <h4>Lead is captured & notified</h4>
-                            <p>The lead automatically goes to a Google Sheet or your CRM. You get an instant text/email notification.</p>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <h4>3. Automatic Follow-Up</h4>
+                        </div>
+                        <div class="package-body">
+                            <p><strong>Never miss a lead again.</strong> Automated texts and emails ensure every inquiry gets a response.</p>
+                            <ul class="feature-list">
+                                <li>Instant text to you when lead comes</li>
+                                <li>Auto-response to homeowner</li>
+                                <li>Reminders if they don't reply</li>
+                                <li>Simple call script for your team</li>
+                                <li>All leads in one Google Sheet</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="how-it-works-step">
-                        <div class="step-number">4</div>
-                        <div class="how-it-works-content">
-                            <h4>Automated follow-up begins</h4>
-                            <p>The system sends an immediate response to the lead. If they don't reply, it sends reminders according to your schedule.</p>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-icon">
+                                <i class="fas fa-traffic-light"></i>
+                            </div>
+                            <h4>4. Targeted Roofing Ads</h4>
+                        </div>
+                        <div class="package-body">
+                            <p><strong>Get in front of homeowners who need roofs now.</strong> We set up and manage Google/Facebook ads.</p>
+                            <ul class="feature-list">
+                                <li>Targets "roof leak" searches</li>
+                                <li>Focuses on your service area</li>
+                                <li>Small, controlled budget</li>
+                                <li>Only pay for actual clicks</li>
+                                <li>Weekly performance reports</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="how-it-works-step">
-                        <div class="step-number">5</div>
-                        <div class="how-it-works-content">
-                            <h4>You call with a prepared script</h4>
-                            <p>You call the lead with a simple script that converts at a higher rate. The system tracks everything.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="how-it-works-step">
-                        <div class="step-number">6</div>
-                        <div class="how-it-works-content">
-                            <h4>Monthly optimization</h4>
-                            <p>We review what's working, adjust the ads and page, and optimize to get you more booked appointments.</p>
+                </div>
+            </div>
+            
+            <!-- Case Study -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div style="background: #f8fafc; border-radius: 15px; padding: 40px; border-left: 5px solid var(--roof-orange);">
+                        <h3 class="mb-4">Real Example: Precision Roofing Co.</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Before System:</h5>
+                                <ul>
+                                    <li>4-5 calls per week (mostly referrals)</li>
+                                    <li>Website generated 1-2 leads/month</li>
+                                    <li>No consistent lead source</li>
+                                    <li>Missing evening/weekend inquiries</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>After 3 Months:</h5>
+                                <ul>
+                                    <li>12-15 qualified leads per week</li>
+                                    <li>28 booked inspections in Month 3</li>
+                                    <li>$2,400 in ad spend → $24,800 in new contracts</li>
+                                    <li>Leads captured 24/7, even Sundays</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -473,78 +595,88 @@
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section class="py-5 bg-light" id="demo">
+    <!-- Interactive Demo -->
+    <section class="section-padding bg-light" id="demo">
         <div class="container">
             <div class="section-title">
-                <h2>Try The Live Demo</h2>
-                <p>See how the AI chat and lead capture works</p>
+                <h2>See How Homeowners Interact With Your System</h2>
+                <p class="subtitle">Try our live demo to experience what your future customers will see</p>
             </div>
             
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="demo-form">
-                        <h4 class="mb-4">Example: Roofer Landing Page</h4>
-                        <p>Imagine you're a homeowner with a leaking roof. You search "roof repair near me" and find this page. The AI chat would engage you like this:</p>
+            <div class="demo-section">
+                <div class="row g-0">
+                    <div class="col-lg-6 p-5">
+                        <h3 class="mb-4">Try the AI Chat Yourself</h3>
+                        <p class="mb-4">This is what homeowners see when they visit your roofing page. The AI answers their questions and books appointments—even when you're busy.</p>
                         
-                        <div class="chat-body" id="demoChatBody">
-                            <div class="message bot-message">
-                                <strong>RoofPro AI:</strong> Hi there! Are you looking for roof repair or replacement services?
+                        <div class="demo-chat" id="demoChat">
+                            <!-- Chat messages will be inserted here by JavaScript -->
+                            <div class="chat-message chat-bot">
+                                <strong>RoofPro AI:</strong> Hi! I'm here to help with your roofing questions. Are you looking for emergency repair, or planning a roof replacement?
                             </div>
-                            <div class="message bot-message">
-                                <strong>RoofPro AI:</strong> I can answer questions about our services, provide a quick estimate, or connect you with our roofing experts for a free consultation.
-                            </div>
+                        </div>
+                        
+                        <div class="chat-options mt-3">
+                            <div class="chat-option" onclick="selectOption('How much does a roof repair cost?')">How much does a roof repair cost?</div>
+                            <div class="chat-option" onclick="selectOption('I have a leak, need emergency repair')">I have a leak, need emergency repair</div>
+                            <div class="chat-option" onclick="selectOption('How long does a roof replacement take?')">How long does a roof replacement take?</div>
+                            <div class="chat-option" onclick="selectOption('Do you offer free inspections?')">Do you offer free inspections?</div>
                         </div>
                         
                         <div class="mt-4">
-                            <p class="form-label">Try asking a question (like a homeowner would):</p>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="demoQuestion" placeholder="E.g., How much does a roof repair cost?">
-                                <button class="btn btn-primary" type="button" id="askDemo">Ask</button>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="chatInput" placeholder="Or type your own question...">
+                                <button class="btn btn-primary" type="button" onclick="sendMessage()">Send</button>
                             </div>
-                            <p class="small text-muted">This simulates how the AI chat would respond and capture lead information.</p>
                         </div>
-                        
-                        <div id="leadForm" style="display: none;">
-                            <hr>
-                            <h5>Lead Capture Form</h5>
-                            <p>The AI has determined you're a potential customer and would now collect your information:</p>
-                            <div class="row g-3">
-                                <div class="col-md-6">
+                    </div>
+                    
+                    <div class="col-lg-6 p-5" style="background: #f8fafc;">
+                        <div id="leadFormContainer">
+                            <h3 class="mb-4">See How Leads Get Captured</h3>
+                            <p>When a homeowner is ready, the AI collects their information automatically. You'll get an instant text with their details.</p>
+                            
+                            <div class="lead-form mt-4">
+                                <h5 class="mb-3">Lead Capture Form (Auto-filled by AI)</h5>
+                                <div class="mb-3">
                                     <label class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="demoName">
+                                    <input type="text" class="form-control" id="demoName" placeholder="John Smith">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="mb-3">
                                     <label class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" id="demoPhone">
+                                    <input type="tel" class="form-control" id="demoPhone" placeholder="(555) 123-4567">
                                 </div>
-                                <div class="col-md-12">
+                                <div class="mb-3">
                                     <label class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="demoEmail">
+                                    <input type="email" class="form-control" id="demoEmail" placeholder="john@example.com">
                                 </div>
-                                <div class="col-md-12">
-                                    <label class="form-label">What type of roofing service do you need?</label>
+                                <div class="mb-4">
+                                    <label class="form-label">Service Needed</label>
                                     <select class="form-control" id="demoService">
-                                        <option>Repair</option>
-                                        <option>Replacement</option>
-                                        <option>New Installation</option>
-                                        <option>Inspection</option>
-                                        <option>Not sure</option>
+                                        <option>Emergency Repair</option>
+                                        <option>Scheduled Repair</option>
+                                        <option>Full Replacement</option>
+                                        <option>Inspection & Quote</option>
                                     </select>
                                 </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-success w-100 mt-2" id="submitLead">Submit for Free Quote</button>
-                                    <p class="small text-muted mt-2">In the real system, this would instantly notify the business owner and begin the follow-up sequence.</p>
-                                </div>
+                                <button class="btn btn-success w-100 py-3" onclick="submitLead()">
+                                    <i class="fas fa-bell me-2"></i> Simulate Lead Submission
+                                </button>
+                                <p class="small text-muted mt-2">In the real system, this would instantly text you and add the lead to your Google Sheet.</p>
                             </div>
                         </div>
                         
                         <div id="thankYouMessage" style="display: none;">
-                            <div class="alert alert-success mt-3">
-                                <h5><i class="fas fa-check-circle me-2"></i>Lead Captured Successfully!</h5>
-                                <p class="mb-0">The business owner has been notified and will contact you shortly. They'll also receive an automated follow-up sequence if they don't respond within 24 hours.</p>
+                            <div class="alert alert-success">
+                                <h5><i class="fas fa-check-circle me-2"></i>Lead Submitted Successfully!</h5>
+                                <p class="mb-0">As the roofer, you would have just received:</p>
+                                <ul class="mt-2">
+                                    <li>A text message with lead details</li>
+                                    <li>An email with full information</li>
+                                    <li>The lead added to your Google Sheet</li>
+                                    <li>Auto-response sent to the homeowner</li>
+                                </ul>
                             </div>
-                            <p class="mt-3"><strong>This is exactly how the Client Machine works for your clients.</strong> The lead goes into their Google Sheet/CRM, they get an instant notification, and the follow-up automation begins.</p>
                         </div>
                     </div>
                 </div>
@@ -552,85 +684,82 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="py-5" id="contact">
+    <!-- Process Steps -->
+    <section class="section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>Ready To Offer This System?</h2>
-                <p>Start selling the Client Machine package to local service businesses</p>
+                <h2>Simple 5-Day Setup Process</h2>
+                <p class="subtitle">We do the heavy lifting. You get more roofing jobs.</p>
             </div>
             
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="card border-0 shadow">
-                        <div class="card-body p-5">
-                            <h3 class="card-title mb-4">Your Implementation Checklist</h3>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h5>What You Need:</h5>
-                                    <ul class="feature-list">
-                                        <li>This HTML template (customizable)</li>
-                                        <li>Google Sheets for lead tracking</li>
-                                        <li>Zapier/Make.com for automation</li>
-                                        <li>Twilio for SMS notifications</li>
-                                        <li>Email service (SendGrid, etc.)</li>
-                                        <li>ChatGPT API for AI chat</li>
-                                        <li>Hosting (Netlify, Vercel, etc.)</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <h5>Your Process:</h5>
-                                    <ol>
-                                        <li>Customize landing page for client's niche</li>
-                                        <li>Set up Google Sheet/CRM integration</li>
-                                        <li>Configure AI chat with service-specific FAQs</li>
-                                        <li>Set up automation workflows</li>
-                                        <li>Implement traffic strategy (client's budget)</li>
-                                        <li>Train client on follow-up system</li>
-                                        <li>Monthly optimization & reporting</li>
-                                    </ol>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4">
-                                <h5>Pricing Model Suggestions:</h5>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <h6 class="card-title">Option 1: Package Pricing</h6>
-                                                <ul>
-                                                    <li><strong>Setup Fee:</strong> $2,500 - $5,000</li>
-                                                    <li><strong>Monthly Management:</strong> $500 - $1,500</li>
-                                                    <li>Best for established businesses</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <h6 class="card-title">Option 2: Performance Pricing</h6>
-                                                <ul>
-                                                    <li><strong>Lower Setup Fee:</strong> $1,500</li>
-                                                    <li><strong>Per Qualified Lead:</strong> $20 - $50</li>
-                                                    <li><strong>Monthly Minimum:</strong> $300</li>
-                                                    <li>Best for businesses new to digital</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="text-center mt-5">
-                                <h4 class="mb-3">Start With This Template</h4>
-                                <p class="mb-4">You have the complete HTML/CSS/JS template. Now customize it for your first client!</p>
-                                <a href="#" class="cta-button me-3" onclick="downloadTemplate()"><i class="fas fa-download me-2"></i>Download Template</a>
-                                <a href="#demo" class="cta-button" style="background-color: transparent; color: var(--primary); border: 2px solid var(--primary);">Review Demo Again</a>
-                            </div>
+                <div class="col-lg-10 mx-auto">
+                    <div class="d-flex mb-5">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Day 1: Strategy Call</h4>
+                            <p>We learn about your roofing services, ideal customers, and service areas. We customize the messaging and AI responses specifically for your business.</p>
                         </div>
+                    </div>
+                    
+                    <div class="d-flex mb-5">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Day 2-3: System Build</h4>
+                            <p>We create your roofing-focused landing page, set up the AI chat with your specific FAQs, and configure the automation to notify you via text/email.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-5">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Day 4: Ad Setup</h4>
+                            <p>We set up Google/Facebook ads targeting homeowners in your service area who are searching for roofing services. We start with a small test budget.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Day 5: Training & Launch</h4>
+                            <p>We train you on the system, show you how to use the call scripts, and launch everything. You start getting leads immediately.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section-padding" id="contact" style="background: linear-gradient(135deg, var(--roof-blue), #1e3a8a); color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-3">Ready to Get More Roofing Jobs Consistently?</h2>
+                    <p class="lead mb-4">Book a free 15-minute demo. We'll show you exactly how many leads we can generate for your roofing business.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#" class="cta-primary" style="background-color: var(--roof-orange);">
+                            <i class="fas fa-calendar me-2"></i> Schedule Free Demo
+                        </a>
+                        <a href="tel:+15551234567" class="cta-secondary">
+                            <i class="fas fa-phone me-2"></i> Call Now: (555) 123-4567
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 12px;">
+                        <h5 class="mb-3">Free Lead System Audit</h5>
+                        <p class="small">Submit your info for a customized analysis of how many more leads we can get you.</p>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Phone Number">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <button class="btn btn-warning w-100">Get Free Audit</button>
                     </div>
                 </div>
             </div>
@@ -641,209 +770,119 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h3><span class="highlight">Client</span>Machine</h3>
-                    <p class="mt-3">A complete lead generation system for high-value local service businesses.</p>
-                    <p>Turn website visitors into booked appointments with this all-in-one solution.</p>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-weight: 800; color: #fbbf24;">
+                        Lead<span style="color: white;">Flow</span>Roofers
+                    </h3>
+                    <p class="mt-3" style="opacity: 0.8;">We help roofing companies get more qualified leads and booked appointments every month.</p>
+                    <p style="opacity: 0.8;"><i class="fas fa-map-marker-alt me-2"></i> Serving roofing companies nationwide</p>
                 </div>
-                <div class="col-md-3">
-                    <h5>System Components</h5>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h5 class="footer-heading">For Roofing Companies</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#package" class="text-light">Landing Page</a></li>
-                        <li><a href="#package" class="text-light">AI Chat & Capture</a></li>
-                        <li><a href="#package" class="text-light">Follow-Up System</a></li>
-                        <li><a href="#package" class="text-light">Traffic Plan</a></li>
+                        <li class="mb-2"><a href="#how" style="color: #d1d5db; text-decoration: none;">How It Works</a></li>
+                        <li class="mb-2"><a href="#demo" style="color: #d1d5db; text-decoration: none;">Live Demo</a></li>
+                        <li class="mb-2"><a href="#contact" style="color: #d1d5db; text-decoration: none;">Free Audit</a></li>
+                        <li class="mb-2"><a href="#contact" style="color: #d1d5db; text-decoration: none;">Book a Demo</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3">
-                    <h5>Target Niches</h5>
-                    <ul class="list-unstyled">
-                        <li class="text-light">Roofing Companies</li>
-                        <li class="text-light">Med Spas</li>
-                        <li class="text-light">Contractors</li>
-                        <li class="text-light">HVAC Services</li>
-                        <li class="text-light">Landscapers</li>
-                        <li class="text-light">Home Cleaners</li>
-                    </ul>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <p style="opacity: 0.8;"><i class="fas fa-phone me-2"></i> (555) 123-ROOF</p>
+                    <p style="opacity: 0.8;"><i class="fas fa-envelope me-2"></i> hello@leadflowroofers.com</p>
+                    <p style="opacity: 0.8;"><i class="fas fa-clock me-2"></i> Mon-Fri 9AM-6PM EST</p>
                 </div>
             </div>
-            <hr class="my-4 bg-light">
-            <div class="text-center">
-                <p class="mb-0">© 2023 Client Machine. A complete lead generation system for local service businesses.</p>
+            <hr class="my-5" style="border-color: #374151;">
+            <div class="text-center" style="opacity: 0.7;">
+                <p class="mb-0">© 2023 LeadFlow Roofers. A complete lead generation system for roofing companies.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Chat Widget -->
-    <div class="chat-toggle" id="chatToggle">
-        <i class="fas fa-comment"></i>
-    </div>
-    
-    <div class="chat-widget" id="chatWidget">
-        <div class="chat-header">
-            <span>Client Machine AI Assistant</span>
-            <i class="fas fa-times" id="closeChat" style="cursor: pointer;"></i>
-        </div>
-        <div class="chat-body" id="chatBody">
-            <div class="message bot-message">
-                Hi! I'm the Client Machine AI. I can answer questions about this lead generation system or help you understand how it works for local service businesses.
-            </div>
-            <div class="message bot-message">
-                What would you like to know about?
-            </div>
-        </div>
-        <div class="chat-input">
-            <div class="input-group">
-                <input type="text" class="form-control" id="chatInput" placeholder="Type your question...">
-                <button class="btn btn-primary" type="button" id="sendChat"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Chat Widget Toggle
-        document.getElementById('chatToggle').addEventListener('click', function() {
-            document.getElementById('chatWidget').style.display = 'flex';
-            this.style.display = 'none';
-        });
+        // Interactive Demo Chat
+        let chatStep = 0;
+        const demoChat = document.getElementById('demoChat');
         
-        document.getElementById('closeChat').addEventListener('click', function() {
-            document.getElementById('chatWidget').style.display = 'none';
-            document.getElementById('chatToggle').style.display = 'flex';
-        });
+        function selectOption(option) {
+            addMessage(option, 'user');
+            chatStep++;
+            
+            setTimeout(() => {
+                let response = '';
+                
+                if (option.includes('cost') || option.includes('price')) {
+                    response = "Roof repair costs typically range from $350-$1,200 depending on the extent of damage and materials. For a precise quote, I'd recommend a free inspection. Can I get your name and contact information to schedule one?";
+                    showLeadForm();
+                } else if (option.includes('leak') || option.includes('emergency')) {
+                    response = "For emergency leaks, we offer same-day service. Please provide your contact information and I'll have a roofing expert call you within 30 minutes.";
+                    showLeadForm();
+                } else if (option.includes('long') || option.includes('take')) {
+                    response = "Most repairs take 1-2 days. Full replacements typically take 2-4 days depending on roof size. Would you like me to schedule a free inspection to give you a more accurate timeline?";
+                    showLeadForm();
+                } else if (option.includes('inspection') || option.includes('free')) {
+                    response = "Yes, we offer free roof inspections and quotes. I can schedule one for you right now. Just need a few details to get you on our calendar.";
+                    showLeadForm();
+                } else {
+                    response = "I'd be happy to help with that! To connect you with the right specialist and provide accurate information, could I get your contact details?";
+                    showLeadForm();
+                }
+                
+                addMessage(response, 'bot');
+            }, 800);
+        }
         
-        // Chat Functionality
-        document.getElementById('sendChat').addEventListener('click', sendChatMessage);
-        document.getElementById('chatInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') sendChatMessage();
-        });
-        
-        function sendChatMessage() {
+        function sendMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
             
-            if (message === '') return;
-            
-            // Add user message
-            const chatBody = document.getElementById('chatBody');
-            const userMessage = document.createElement('div');
-            userMessage.className = 'message user-message';
-            userMessage.innerHTML = `<strong>You:</strong> ${message}`;
-            chatBody.appendChild(userMessage);
-            
-            // Clear input
-            input.value = '';
-            
-            // Scroll to bottom
-            chatBody.scrollTop = chatBody.scrollHeight;
-            
-            // Simulate AI response after delay
-            setTimeout(() => {
-                const botMessage = document.createElement('div');
-                botMessage.className = 'message bot-message';
-                
-                // Simple response logic
-                let response = "I can help with that! The Client Machine system includes: 1) A focused landing page, 2) AI chat for lead capture, 3) Automated follow-up system, and 4) A traffic plan. Is there a specific part you'd like to know more about?";
-                
-                if (message.toLowerCase().includes('price') || message.toLowerCase().includes('cost')) {
-                    response = "The Client Machine is typically sold as a package with a setup fee ($2,500-$5,000) and monthly management ($500-$1,500). Some businesses prefer performance pricing with a lower setup fee and pay per qualified lead. Which model works best for your clients?";
-                } else if (message.toLowerCase().includes('time') || message.toLowerCase().includes('long')) {
-                    response = "Setup takes 5-7 days once we have the client's information. The landing page is customized for their niche, AI chat is trained on their FAQs, and automation is configured. Traffic campaigns can begin immediately after setup.";
-                } else if (message.toLowerCase().includes('niche') || message.toLowerCase().includes('business')) {
-                    response = "This works best for high-value local services where each customer is worth $1,000+: roofers, med spas, contractors, HVAC, landscapers, home cleaners, dentists, lawyers, etc. Any service business that does consultations or quotes.";
-                }
-                
-                botMessage.innerHTML = `<strong>AI Assistant:</strong> ${response}`;
-                chatBody.appendChild(botMessage);
-                
-                // Scroll to bottom
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }, 1000);
+            if (message) {
+                selectOption(message);
+                input.value = '';
+            }
         }
         
-        // Demo Functionality
-        document.getElementById('askDemo').addEventListener('click', function() {
-            const question = document.getElementById('demoQuestion').value.toLowerCase();
-            const chatBody = document.getElementById('demoChatBody');
-            
-            // Add user question
-            const userMessage = document.createElement('div');
-            userMessage.className = 'message user-message';
-            userMessage.innerHTML = `<strong>You:</strong> ${document.getElementById('demoQuestion').value}`;
-            chatBody.appendChild(userMessage);
-            
-            // Clear input
-            document.getElementById('demoQuestion').value = '';
-            
-            // Add bot response based on question
-            const botMessage = document.createElement('div');
-            botMessage.className = 'message bot-message';
-            
-            let response = "";
-            
-            if (question.includes('cost') || question.includes('price') || question.includes('much')) {
-                response = "Roof repair costs vary based on the extent of damage, materials, and roof size. For an accurate estimate, I'd need a few details. Could you provide your name and contact information so one of our roofing experts can provide a free quote?";
-                document.getElementById('leadForm').style.display = 'block';
-            } else if (question.includes('time') || question.includes('long') || question.includes('schedule')) {
-                response = "Most repairs take 1-2 days. Emergency repairs can often be done within 24 hours. To check our availability and schedule an inspection, could I get your contact information?";
-                document.getElementById('leadForm').style.display = 'block';
-            } else if (question.includes('leak') || question.includes('emergency') || question.includes('urgent')) {
-                response = "For emergency leaks, we offer 24/7 service. I can connect you immediately with our emergency team. Please provide your name and phone number so they can call you right away.";
-                document.getElementById('leadForm').style.display = 'block';
-            } else if (question.includes('warranty') || question.includes('guarantee')) {
-                response = "We offer a 10-year workmanship warranty on all repairs and replacements, plus manufacturer warranties on materials. Would you like to schedule a free inspection to discuss your specific needs?";
-            } else {
-                response = "I'd be happy to help with that! To give you the most accurate information and connect you with the right specialist, could I get your name and contact details?";
-                document.getElementById('leadForm').style.display = 'block';
-            }
-            
-            botMessage.innerHTML = `<strong>RoofPro AI:</strong> ${response}`;
-            chatBody.appendChild(botMessage);
-            
-            // Scroll to bottom
-            chatBody.scrollTop = chatBody.scrollHeight;
-        });
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message chat-${sender}`;
+            messageDiv.innerHTML = `<strong>${sender === 'bot' ? 'RoofPro AI:' : 'You:'}</strong> ${text}`;
+            demoChat.appendChild(messageDiv);
+            demoChat.scrollTop = demoChat.scrollHeight;
+        }
         
-        // Demo lead form submission
-        document.getElementById('submitLead').addEventListener('click', function() {
-            document.getElementById('leadForm').style.display = 'none';
+        function showLeadForm() {
+            // Auto-fill demo form with sample data
+            document.getElementById('demoName').value = "John Homeowner";
+            document.getElementById('demoPhone').value = "(555) 987-6543";
+            document.getElementById('demoEmail').value = "john@example.com";
+            
+            // Highlight the form
+            document.getElementById('leadFormContainer').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function submitLead() {
+            document.getElementById('leadFormContainer').style.display = 'none';
             document.getElementById('thankYouMessage').style.display = 'block';
             
-            // Simulate adding to Google Sheet
-            console.log('Lead captured:', {
-                name: document.getElementById('demoName').value,
-                phone: document.getElementById('demoPhone').value,
-                email: document.getElementById('demoEmail').value,
-                service: document.getElementById('demoService').value,
-                timestamp: new Date().toISOString()
-            });
-            
-            // Show in demo chat
-            const chatBody = document.getElementById('demoChatBody');
-            const botMessage = document.createElement('div');
-            botMessage.className = 'message bot-message';
-            botMessage.innerHTML = `<strong>System:</strong> Thank you! Your information has been submitted. A roofing expert will contact you within 30 minutes. You'll also receive a confirmation text message shortly.`;
-            chatBody.appendChild(botMessage);
-            
-            // Scroll to bottom
-            chatBody.scrollTop = chatBody.scrollHeight;
-        });
-        
-        // Template download simulation
-        function downloadTemplate() {
-            alert("Template download started! In a real implementation, this would download the complete HTML/CSS/JS files for the Client Machine system.");
-            // In reality, you would have a zip file with all the template files
+            // Add final chat message
+            setTimeout(() => {
+                addMessage("Perfect! I've submitted your information. A roofing expert will contact you within 30 minutes. You'll also receive a confirmation text shortly.", 'bot');
+            }, 500);
         }
+        
+        // Initialize with welcome message
+        setTimeout(() => {
+            addMessage("I can help with emergency repairs, roof replacements, inspections, and general questions. What would you like to know?", 'bot');
+        }, 1500);
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
