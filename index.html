@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Machine - Complete Lead Generation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1e429f;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .hero {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+            padding: 5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .highlight {
+            color: var(--primary);
+            position: relative;
+        }
+        .highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background-color: rgba(42, 91, 215, 0.15);
+            z-index: -1;
+        }
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(42, 91, 215, 0.2);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .package-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            height: 100%;
+            border: 1px solid #e5e7eb;
+        }
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+        .package-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .package-body {
+            padding: 2rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f1f1;
+            position: relative;
+            padding-left: 2rem;
+        }
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        .chat-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-body {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+        .chat-input {
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+            background: white;
+        }
+        .chat-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(42, 91, 215, 0.3);
+            z-index: 999;
+        }
+        .message {
+            margin-bottom: 1rem;
+            max-width: 80%;
+        }
+        .bot-message {
+            background-color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px 12px 12px 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            align-self: flex-start;
+        }
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px 12px 4px 12px;
+            margin-left: auto;
+            align-self: flex-end;
+        }
+        .demo-form {
+            background-color: #f0f7ff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .step-number {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+        .how-it-works-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        .how-it-works-content {
+            flex: 1;
+        }
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .chat-widget {
+                width: calc(100vw - 60px);
+                height: 60vh;
+                right: 30px;
+                left: 30px;
+                bottom: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span class="highlight">Client</span>Machine</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#what-is">What Is It</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#package">Package</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Demo</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link cta-button" href="#contact">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>A system that gives you more <span class="highlight">booked quotes</span> every month.</h1>
+                    <p class="lead mb-4">Not just a website. A complete lead generation and conversion system for high-value local services like roofing companies, med spas, contractors, and more.</p>
+                    <a href="#package" class="cta-button me-3">See The Package</a>
+                    <a href="#demo" class="cta-button" style="background-color: transparent; color: var(--primary); border: 2px solid var(--primary);">Try Demo</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="package-card mt-5 mt-lg-0">
+                        <div class="package-header">
+                            <h3 class="mb-0">Complete Lead System</h3>
+                            <p class="mb-0 mt-1">Everything you need to convert visitors into booked appointments</p>
+                        </div>
+                        <div class="package-body">
+                            <ul class="feature-list">
+                                <li>Focused Landing Page</li>
+                                <li>AI Chat & Lead Capture</li>
+                                <li>Automated Follow-Up System</li>
+                                <li>Traffic Strategy & Setup</li>
+                                <li>CRM Integration</li>
+                                <li>Monthly Performance Reports</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <h4 class="text-primary">One-Time Setup + Monthly Management</h4>
+                                <p class="text-muted">Stop wasting money on websites that don't generate leads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Is It Section -->
+    <section class="py-5" id="what-is">
+        <div class="container">
+            <div class="section-title">
+                <h2>What You're Actually Selling</h2>
+                <p class="lead">You're not selling websites. You're selling booked appointments.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="alert alert-primary" role="alert">
+                        <h4 class="alert-heading"><i class="fas fa-bullhorn me-2"></i>Your Sales Pitch:</h4>
+                        <p class="mb-0">"I set up and manage a complete system that gets you more booked quotes or consultations every month. Not just a website - but the entire machine that turns online visitors into paying customers."</p>
+                    </div>
+                    
+                    <p class="mt-4">Most local service businesses waste thousands on "brochure websites" that don't generate leads. They struggle with inconsistent inquiries and poor lead quality.</p>
+                    
+                    <p>The Client Machine solves this with a focused 4-part system designed specifically for high-value local services where each customer is worth $1,000+.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Details -->
+    <section class="py-5 bg-light" id="package">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Complete Package</h2>
+                <p>Everything included in the Client Machine system</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-card h-100">
+                        <div class="package-header" style="background-color: #3b82f6;">
+                            <i class="fas fa-laptop fa-2x mb-3"></i>
+                            <h4>1. Landing Page</h4>
+                        </div>
+                        <div class="package-body">
+                            <p><strong>Single-page, focused design</strong> with one goal: get visitors to request a quote or book a consultation.</p>
+                            <ul class="feature-list">
+                                <li>Mobile-optimized</li>
+                                <li>Service-specific messaging</li>
+                                <li>Social proof & testimonials</li>
+                                <li>Clear call-to-action</li>
+                                <li>Contact form</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-card h-100">
+                        <div class="package-header" style="background-color: #10b981;">
+                            <i class="fas fa-robot fa-2x mb-3"></i>
+                            <h4>2. AI Chat & Capture</h4>
+                        </div>
+                        <div class="package-body">
+                            <p><strong>AI chat widget</strong> that answers questions 24/7 and captures lead information automatically.</p>
+                            <ul class="feature-list">
+                                <li>Answers basic questions</li>
+                                <li>Collects name, phone, email</li>
+                                <li>Qualifies leads</li>
+                                <li>Pushes to Google Sheets/CRM</li>
+                                <li>Works after hours</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-card h-100">
+                        <div class="package-header" style="background-color: #8b5cf6;">
+                            <i class="fas fa-sync-alt fa-2x mb-3"></i>
+                            <h4>3. Follow-Up System</h4>
+                        </div>
+                        <div class="package-body">
+                            <p><strong>Automated follow-up</strong> sequence to ensure no lead falls through the cracks.</p>
+                            <ul class="feature-list">
+                                <li>Instant lead notification</li>
+                                <li>Auto-text/email response</li>
+                                <li>Reminder system</li>
+                                <li>Call script for business</li>
+                                <li>CRM integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="package-card h-100">
+                        <div class="package-header" style="background-color: #f59e0b;">
+                            <i class="fas fa-traffic-light fa-2x mb-3"></i>
+                            <h4>4. Traffic Plan</h4>
+                        </div>
+                        <div class="package-body">
+                            <p><strong>Get targeted visitors</strong> to your landing page with a simple, effective traffic strategy.</p>
+                            <ul class="feature-list">
+                                <li>Google Ads setup</li>
+                                <li>Facebook Ads strategy</li>
+                                <li>Local outreach plan</li>
+                                <li>Budget guidance</li>
+                                <li>Performance tracking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-5" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How The System Works</h2>
+                <p>From visitor to booked appointment - automatically</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="how-it-works-step">
+                        <div class="step-number">1</div>
+                        <div class="how-it-works-content">
+                            <h4>Visitor lands on your focused page</h4>
+                            <p>They come from Google Ads, Facebook, or local search. The page is designed with one goal: get them to inquire.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="how-it-works-step">
+                        <div class="step-number">2</div>
+                        <div class="how-it-works-content">
+                            <h4>AI chat engages & qualifies</h4>
+                            <p>The chat widget pops up, answers their questions, and collects their contact information if they're interested.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="how-it-works-step">
+                        <div class="step-number">3</div>
+                        <div class="how-it-works-content">
+                            <h4>Lead is captured & notified</h4>
+                            <p>The lead automatically goes to a Google Sheet or your CRM. You get an instant text/email notification.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="how-it-works-step">
+                        <div class="step-number">4</div>
+                        <div class="how-it-works-content">
+                            <h4>Automated follow-up begins</h4>
+                            <p>The system sends an immediate response to the lead. If they don't reply, it sends reminders according to your schedule.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="how-it-works-step">
+                        <div class="step-number">5</div>
+                        <div class="how-it-works-content">
+                            <h4>You call with a prepared script</h4>
+                            <p>You call the lead with a simple script that converts at a higher rate. The system tracks everything.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="how-it-works-step">
+                        <div class="step-number">6</div>
+                        <div class="how-it-works-content">
+                            <h4>Monthly optimization</h4>
+                            <p>We review what's working, adjust the ads and page, and optimize to get you more booked appointments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="py-5 bg-light" id="demo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Try The Live Demo</h2>
+                <p>See how the AI chat and lead capture works</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="demo-form">
+                        <h4 class="mb-4">Example: Roofer Landing Page</h4>
+                        <p>Imagine you're a homeowner with a leaking roof. You search "roof repair near me" and find this page. The AI chat would engage you like this:</p>
+                        
+                        <div class="chat-body" id="demoChatBody">
+                            <div class="message bot-message">
+                                <strong>RoofPro AI:</strong> Hi there! Are you looking for roof repair or replacement services?
+                            </div>
+                            <div class="message bot-message">
+                                <strong>RoofPro AI:</strong> I can answer questions about our services, provide a quick estimate, or connect you with our roofing experts for a free consultation.
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p class="form-label">Try asking a question (like a homeowner would):</p>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="demoQuestion" placeholder="E.g., How much does a roof repair cost?">
+                                <button class="btn btn-primary" type="button" id="askDemo">Ask</button>
+                            </div>
+                            <p class="small text-muted">This simulates how the AI chat would respond and capture lead information.</p>
+                        </div>
+                        
+                        <div id="leadForm" style="display: none;">
+                            <hr>
+                            <h5>Lead Capture Form</h5>
+                            <p>The AI has determined you're a potential customer and would now collect your information:</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="demoName">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="demoPhone">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="demoEmail">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label">What type of roofing service do you need?</label>
+                                    <select class="form-control" id="demoService">
+                                        <option>Repair</option>
+                                        <option>Replacement</option>
+                                        <option>New Installation</option>
+                                        <option>Inspection</option>
+                                        <option>Not sure</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-success w-100 mt-2" id="submitLead">Submit for Free Quote</button>
+                                    <p class="small text-muted mt-2">In the real system, this would instantly notify the business owner and begin the follow-up sequence.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="thankYouMessage" style="display: none;">
+                            <div class="alert alert-success mt-3">
+                                <h5><i class="fas fa-check-circle me-2"></i>Lead Captured Successfully!</h5>
+                                <p class="mb-0">The business owner has been notified and will contact you shortly. They'll also receive an automated follow-up sequence if they don't respond within 24 hours.</p>
+                            </div>
+                            <p class="mt-3"><strong>This is exactly how the Client Machine works for your clients.</strong> The lead goes into their Google Sheet/CRM, they get an instant notification, and the follow-up automation begins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready To Offer This System?</h2>
+                <p>Start selling the Client Machine package to local service businesses</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-5">
+                            <h3 class="card-title mb-4">Your Implementation Checklist</h3>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>What You Need:</h5>
+                                    <ul class="feature-list">
+                                        <li>This HTML template (customizable)</li>
+                                        <li>Google Sheets for lead tracking</li>
+                                        <li>Zapier/Make.com for automation</li>
+                                        <li>Twilio for SMS notifications</li>
+                                        <li>Email service (SendGrid, etc.)</li>
+                                        <li>ChatGPT API for AI chat</li>
+                                        <li>Hosting (Netlify, Vercel, etc.)</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Your Process:</h5>
+                                    <ol>
+                                        <li>Customize landing page for client's niche</li>
+                                        <li>Set up Google Sheet/CRM integration</li>
+                                        <li>Configure AI chat with service-specific FAQs</li>
+                                        <li>Set up automation workflows</li>
+                                        <li>Implement traffic strategy (client's budget)</li>
+                                        <li>Train client on follow-up system</li>
+                                        <li>Monthly optimization & reporting</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h5>Pricing Model Suggestions:</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Option 1: Package Pricing</h6>
+                                                <ul>
+                                                    <li><strong>Setup Fee:</strong> $2,500 - $5,000</li>
+                                                    <li><strong>Monthly Management:</strong> $500 - $1,500</li>
+                                                    <li>Best for established businesses</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Option 2: Performance Pricing</h6>
+                                                <ul>
+                                                    <li><strong>Lower Setup Fee:</strong> $1,500</li>
+                                                    <li><strong>Per Qualified Lead:</strong> $20 - $50</li>
+                                                    <li><strong>Monthly Minimum:</strong> $300</li>
+                                                    <li>Best for businesses new to digital</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-5">
+                                <h4 class="mb-3">Start With This Template</h4>
+                                <p class="mb-4">You have the complete HTML/CSS/JS template. Now customize it for your first client!</p>
+                                <a href="#" class="cta-button me-3" onclick="downloadTemplate()"><i class="fas fa-download me-2"></i>Download Template</a>
+                                <a href="#demo" class="cta-button" style="background-color: transparent; color: var(--primary); border: 2px solid var(--primary);">Review Demo Again</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3><span class="highlight">Client</span>Machine</h3>
+                    <p class="mt-3">A complete lead generation system for high-value local service businesses.</p>
+                    <p>Turn website visitors into booked appointments with this all-in-one solution.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>System Components</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#package" class="text-light">Landing Page</a></li>
+                        <li><a href="#package" class="text-light">AI Chat & Capture</a></li>
+                        <li><a href="#package" class="text-light">Follow-Up System</a></li>
+                        <li><a href="#package" class="text-light">Traffic Plan</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Target Niches</h5>
+                    <ul class="list-unstyled">
+                        <li class="text-light">Roofing Companies</li>
+                        <li class="text-light">Med Spas</li>
+                        <li class="text-light">Contractors</li>
+                        <li class="text-light">HVAC Services</li>
+                        <li class="text-light">Landscapers</li>
+                        <li class="text-light">Home Cleaners</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2023 Client Machine. A complete lead generation system for local service businesses.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-toggle" id="chatToggle">
+        <i class="fas fa-comment"></i>
+    </div>
+    
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <span>Client Machine AI Assistant</span>
+            <i class="fas fa-times" id="closeChat" style="cursor: pointer;"></i>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot-message">
+                Hi! I'm the Client Machine AI. I can answer questions about this lead generation system or help you understand how it works for local service businesses.
+            </div>
+            <div class="message bot-message">
+                What would you like to know about?
+            </div>
+        </div>
+        <div class="chat-input">
+            <div class="input-group">
+                <input type="text" class="form-control" id="chatInput" placeholder="Type your question...">
+                <button class="btn btn-primary" type="button" id="sendChat"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Chat Widget Toggle
+        document.getElementById('chatToggle').addEventListener('click', function() {
+            document.getElementById('chatWidget').style.display = 'flex';
+            this.style.display = 'none';
+        });
+        
+        document.getElementById('closeChat').addEventListener('click', function() {
+            document.getElementById('chatWidget').style.display = 'none';
+            document.getElementById('chatToggle').style.display = 'flex';
+        });
+        
+        // Chat Functionality
+        document.getElementById('sendChat').addEventListener('click', sendChatMessage);
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendChatMessage();
+        });
+        
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            // Add user message
+            const chatBody = document.getElementById('chatBody');
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.innerHTML = `<strong>You:</strong> ${message}`;
+            chatBody.appendChild(userMessage);
+            
+            // Clear input
+            input.value = '';
+            
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+            
+            // Simulate AI response after delay
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot-message';
+                
+                // Simple response logic
+                let response = "I can help with that! The Client Machine system includes: 1) A focused landing page, 2) AI chat for lead capture, 3) Automated follow-up system, and 4) A traffic plan. Is there a specific part you'd like to know more about?";
+                
+                if (message.toLowerCase().includes('price') || message.toLowerCase().includes('cost')) {
+                    response = "The Client Machine is typically sold as a package with a setup fee ($2,500-$5,000) and monthly management ($500-$1,500). Some businesses prefer performance pricing with a lower setup fee and pay per qualified lead. Which model works best for your clients?";
+                } else if (message.toLowerCase().includes('time') || message.toLowerCase().includes('long')) {
+                    response = "Setup takes 5-7 days once we have the client's information. The landing page is customized for their niche, AI chat is trained on their FAQs, and automation is configured. Traffic campaigns can begin immediately after setup.";
+                } else if (message.toLowerCase().includes('niche') || message.toLowerCase().includes('business')) {
+                    response = "This works best for high-value local services where each customer is worth $1,000+: roofers, med spas, contractors, HVAC, landscapers, home cleaners, dentists, lawyers, etc. Any service business that does consultations or quotes.";
+                }
+                
+                botMessage.innerHTML = `<strong>AI Assistant:</strong> ${response}`;
+                chatBody.appendChild(botMessage);
+                
+                // Scroll to bottom
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 1000);
+        }
+        
+        // Demo Functionality
+        document.getElementById('askDemo').addEventListener('click', function() {
+            const question = document.getElementById('demoQuestion').value.toLowerCase();
+            const chatBody = document.getElementById('demoChatBody');
+            
+            // Add user question
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.innerHTML = `<strong>You:</strong> ${document.getElementById('demoQuestion').value}`;
+            chatBody.appendChild(userMessage);
+            
+            // Clear input
+            document.getElementById('demoQuestion').value = '';
+            
+            // Add bot response based on question
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            
+            let response = "";
+            
+            if (question.includes('cost') || question.includes('price') || question.includes('much')) {
+                response = "Roof repair costs vary based on the extent of damage, materials, and roof size. For an accurate estimate, I'd need a few details. Could you provide your name and contact information so one of our roofing experts can provide a free quote?";
+                document.getElementById('leadForm').style.display = 'block';
+            } else if (question.includes('time') || question.includes('long') || question.includes('schedule')) {
+                response = "Most repairs take 1-2 days. Emergency repairs can often be done within 24 hours. To check our availability and schedule an inspection, could I get your contact information?";
+                document.getElementById('leadForm').style.display = 'block';
+            } else if (question.includes('leak') || question.includes('emergency') || question.includes('urgent')) {
+                response = "For emergency leaks, we offer 24/7 service. I can connect you immediately with our emergency team. Please provide your name and phone number so they can call you right away.";
+                document.getElementById('leadForm').style.display = 'block';
+            } else if (question.includes('warranty') || question.includes('guarantee')) {
+                response = "We offer a 10-year workmanship warranty on all repairs and replacements, plus manufacturer warranties on materials. Would you like to schedule a free inspection to discuss your specific needs?";
+            } else {
+                response = "I'd be happy to help with that! To give you the most accurate information and connect you with the right specialist, could I get your name and contact details?";
+                document.getElementById('leadForm').style.display = 'block';
+            }
+            
+            botMessage.innerHTML = `<strong>RoofPro AI:</strong> ${response}`;
+            chatBody.appendChild(botMessage);
+            
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+        });
+        
+        // Demo lead form submission
+        document.getElementById('submitLead').addEventListener('click', function() {
+            document.getElementById('leadForm').style.display = 'none';
+            document.getElementById('thankYouMessage').style.display = 'block';
+            
+            // Simulate adding to Google Sheet
+            console.log('Lead captured:', {
+                name: document.getElementById('demoName').value,
+                phone: document.getElementById('demoPhone').value,
+                email: document.getElementById('demoEmail').value,
+                service: document.getElementById('demoService').value,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Show in demo chat
+            const chatBody = document.getElementById('demoChatBody');
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.innerHTML = `<strong>System:</strong> Thank you! Your information has been submitted. A roofing expert will contact you within 30 minutes. You'll also receive a confirmation text message shortly.`;
+            chatBody.appendChild(botMessage);
+            
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+        });
+        
+        // Template download simulation
+        function downloadTemplate() {
+            alert("Template download started! In a real implementation, this would download the complete HTML/CSS/JS files for the Client Machine system.");
+            // In reality, you would have a zip file with all the template files
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
